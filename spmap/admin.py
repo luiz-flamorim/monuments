@@ -1,3 +1,4 @@
 from django.contrib import admin
+from spmap.models import Monument
 
-# Register your models here.
+admin.site.register(Monument)

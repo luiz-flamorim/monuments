@@ -2,8 +2,9 @@
 from django.db import models
 
 class Monument(models.Model):
+    owner = models.ForeignKey('auth.User', related_name='monuments', on_delete=models.CASCADE)
     data = models.CharField(max_length=500, blank=True, null=True)
-    data_more_info= models.CharField(max_length=500, blank=True, null=True)
+    data_more_info = models.CharField(max_length=500, blank=True, null=True)
     nome = models.CharField(max_length=500, blank=True, null=True)
     genero = models.CharField(max_length=500, blank=True, null=True)
     etinia = models.CharField(max_length=500, blank=True, null=True)
@@ -22,7 +23,7 @@ class Monument(models.Model):
     endereco_original = models.CharField(max_length=500, blank=True, null=True)
     
     class Meta:
-        ordering = ['data']
+        ordering = ['nome']
 
     def __str__(self):
-        return self.data
+        return self.nome
